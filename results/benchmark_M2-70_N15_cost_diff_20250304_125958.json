@@ -16,7 +16,7 @@
       "piqp_sparse": {
         "solver_name": "piqp_sparse",
         "setup_time": 0.0001862049102783203,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.00031496683756510415,
           "std": 8.20140028251702e-05,
           "median": 0.0002897977828979492,
@@ -98,7 +98,7 @@
       "piqp_sse": {
         "solver_name": "piqp_sse",
         "setup_time": 0.0003409385681152344,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0003529071807861328,
           "std": 5.802011033514956e-05,
           "median": 0.00033462047576904297,
@@ -180,7 +180,7 @@
       "piqp_avx2": {
         "solver_name": "piqp_avx2",
         "setup_time": 0.0003421306610107422,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0003108342488606771,
           "std": 4.212242698373483e-05,
           "median": 0.0002980232238769531,
@@ -262,7 +262,7 @@
       "hpipm": {
         "solver_name": "hpipm",
         "setup_time": 0.0015039443969726562,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.00030573209126790363,
           "std": 7.368991656029833e-05,
           "median": 0.00027501583099365234,
@@ -344,7 +344,7 @@
       "qpalm": {
         "solver_name": "qpalm",
         "setup_time": 3.2901763916015625e-05,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0008566459019978841,
           "std": 0.00012395795157052946,
           "median": 0.0008352994918823242,
@@ -426,7 +426,7 @@
       "osqp": {
         "solver_name": "osqp",
         "setup_time": 0.000993967056274414,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.013446513811747234,
           "std": 0.009969594569127369,
           "median": 0.011132001876831055,
@@ -510,7 +510,7 @@
       "piqp_sparse": {
         "solver_name": "piqp_sparse",
         "setup_time": 0.005841970443725586,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0007174730300903321,
           "std": 0.0001343970577624592,
           "median": 0.0006717443466186523,
@@ -592,7 +592,7 @@
       "piqp_sse": {
         "solver_name": "piqp_sse",
         "setup_time": 0.0004978179931640625,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0005164066950480143,
           "std": 9.823016137684453e-05,
           "median": 0.0005129575729370117,
@@ -674,7 +674,7 @@
       "piqp_avx2": {
         "solver_name": "piqp_avx2",
         "setup_time": 0.0005731582641601562,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0004081885019938151,
           "std": 5.59518146835873e-05,
           "median": 0.00040161609649658203,
@@ -756,7 +756,7 @@
       "hpipm": {
         "solver_name": "hpipm",
         "setup_time": 0.001416921615600586,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0004222393035888672,
           "std": 9.990692472463949e-05,
           "median": 0.0003980398178100586,
@@ -838,7 +838,7 @@
       "qpalm": {
         "solver_name": "qpalm",
         "setup_time": 7.987022399902344e-05,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0016338507334391276,
           "std": 0.000198894638874116,
           "median": 0.001610875129699707,
@@ -920,7 +920,7 @@
       "osqp": {
         "solver_name": "osqp",
         "setup_time": 0.0011749267578125,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.032621328035990396,
           "std": 0.019716930445630318,
           "median": 0.030373215675354004,
@@ -1004,7 +1004,7 @@
       "piqp_sparse": {
         "solver_name": "piqp_sparse",
         "setup_time": 0.0057108402252197266,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.00154723326365153,
           "std": 0.00017998349639623506,
           "median": 0.0015079975128173828,
@@ -1086,7 +1086,7 @@
       "piqp_sse": {
         "solver_name": "piqp_sse",
         "setup_time": 0.0006721019744873047,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0007385651270548503,
           "std": 8.003274512803875e-05,
           "median": 0.0007510185241699219,
@@ -1168,7 +1168,7 @@
       "piqp_avx2": {
         "solver_name": "piqp_avx2",
         "setup_time": 0.0006608963012695312,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0005614598592122396,
           "std": 4.133401387341977e-05,
           "median": 0.0005720853805541992,
@@ -1250,7 +1250,7 @@
       "hpipm": {
         "solver_name": "hpipm",
         "setup_time": 0.0015110969543457031,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0006154378255208334,
           "std": 9.862825235443188e-05,
           "median": 0.0006315708160400391,
@@ -1332,7 +1332,7 @@
       "qpalm": {
         "solver_name": "qpalm",
         "setup_time": 7.104873657226562e-05,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0030237038930257163,
           "std": 0.0009402071260894571,
           "median": 0.0027246475219726562,
@@ -1414,7 +1414,7 @@
       "osqp": {
         "solver_name": "osqp",
         "setup_time": 0.0013790130615234375,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.044571789105733235,
           "std": 0.027798177718565624,
           "median": 0.04645955562591553,
@@ -1498,7 +1498,7 @@
       "piqp_sparse": {
         "solver_name": "piqp_sparse",
         "setup_time": 0.0005900859832763672,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.002301192283630371,
           "std": 0.0003116916602053916,
           "median": 0.002254962921142578,
@@ -1580,7 +1580,7 @@
       "piqp_sse": {
         "solver_name": "piqp_sse",
         "setup_time": 0.0009479522705078125,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0011126995086669922,
           "std": 9.212811864705898e-05,
           "median": 0.0010974407196044922,
@@ -1662,7 +1662,7 @@
       "piqp_avx2": {
         "solver_name": "piqp_avx2",
         "setup_time": 0.004891872406005859,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0008084217707316081,
           "std": 6.071033706637896e-05,
           "median": 0.0007975101470947266,
@@ -1744,7 +1744,7 @@
       "hpipm": {
         "solver_name": "hpipm",
         "setup_time": 0.0016760826110839844,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.000874797503153483,
           "std": 0.00019118506311970103,
           "median": 0.0008418560028076172,
@@ -1826,7 +1826,7 @@
       "qpalm": {
         "solver_name": "qpalm",
         "setup_time": 8.392333984375e-05,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.004918885231018066,
           "std": 0.0018307409199272546,
           "median": 0.004372596740722656,
@@ -1908,7 +1908,7 @@
       "osqp": {
         "solver_name": "osqp",
         "setup_time": 0.00167083740234375,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.07566289107004802,
           "std": 0.046444539341513845,
           "median": 0.06600189208984375,
@@ -1992,7 +1992,7 @@
       "piqp_sparse": {
         "solver_name": "piqp_sparse",
         "setup_time": 0.008339881896972656,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.011919792493184407,
           "std": 0.000972136510501673,
           "median": 0.011633515357971191,
@@ -2074,7 +2074,7 @@
       "piqp_sse": {
         "solver_name": "piqp_sse",
         "setup_time": 0.004133939743041992,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.003951764106750489,
           "std": 0.00031176704920480084,
           "median": 0.0038526058197021484,
@@ -2156,7 +2156,7 @@
       "piqp_avx2": {
         "solver_name": "piqp_avx2",
         "setup_time": 0.008747577667236328,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0022457599639892577,
           "std": 0.00018010528934944833,
           "median": 0.002176642417907715,
@@ -2238,7 +2238,7 @@
       "hpipm": {
         "solver_name": "hpipm",
         "setup_time": 0.0016028881072998047,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0025923808415730795,
           "std": 0.0005690233679077309,
           "median": 0.0025359392166137695,
@@ -2320,7 +2320,7 @@
       "qpalm": {
         "solver_name": "qpalm",
         "setup_time": 0.00020575523376464844,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.01853944460550944,
           "std": 0.004044937084822436,
           "median": 0.01830136775970459,
@@ -2402,7 +2402,7 @@
       "osqp": {
         "solver_name": "osqp",
         "setup_time": 0.0043468475341796875,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.3208695570627848,
           "std": 0.12762281665071226,
           "median": 0.3204699754714966,
@@ -2486,7 +2486,7 @@
       "piqp_sparse": {
         "solver_name": "piqp_sparse",
         "setup_time": 0.016391754150390625,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.08777039845784505,
           "std": 0.007109651564994579,
           "median": 0.08770859241485596,
@@ -2568,7 +2568,7 @@
       "piqp_sse": {
         "solver_name": "piqp_sse",
         "setup_time": 0.0287628173828125,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.017778619130452474,
           "std": 0.001101709423073069,
           "median": 0.018007993698120117,
@@ -2650,7 +2650,7 @@
       "piqp_avx2": {
         "solver_name": "piqp_avx2",
         "setup_time": 0.03562808036804199,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.007885050773620606,
           "std": 0.0004539830754915981,
           "median": 0.008074522018432617,
@@ -2732,7 +2732,7 @@
       "hpipm": {
         "solver_name": "hpipm",
         "setup_time": 0.0022079944610595703,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.010724838574727375,
           "std": 0.0022127190974609487,
           "median": 0.010679125785827637,
@@ -2814,7 +2814,7 @@
       "qpalm": {
         "solver_name": "qpalm",
         "setup_time": 0.005939006805419922,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.0958382765452067,
           "std": 0.022857789351640873,
           "median": 0.09266042709350586,
@@ -2896,7 +2896,7 @@
       "osqp": {
         "solver_name": "osqp",
         "setup_time": 0.018299102783203125,
-        "solve_times": {
+        "solve_time": {
           "mean": 1.8023785511652628,
           "std": 1.0438531172405667,
           "median": 1.605591893196106,
@@ -2980,7 +2980,7 @@
       "piqp_sparse": {
         "solver_name": "piqp_sparse",
         "setup_time": 0.031247854232788086,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.25409675439198814,
           "std": 0.0131903073588913,
           "median": 0.24861538410186768,
@@ -3062,7 +3062,7 @@
       "piqp_sse": {
         "solver_name": "piqp_sse",
         "setup_time": 0.08282089233398438,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.053348024686177574,
           "std": 0.003041645260185635,
           "median": 0.05247616767883301,
@@ -3144,7 +3144,7 @@
       "piqp_avx2": {
         "solver_name": "piqp_avx2",
         "setup_time": 0.05965304374694824,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.021226986249287923,
           "std": 0.0012086072610882834,
           "median": 0.021257519721984863,
@@ -3226,7 +3226,7 @@
       "hpipm": {
         "solver_name": "hpipm",
         "setup_time": 0.0032389163970947266,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.029956563313802084,
           "std": 0.007441891127514518,
           "median": 0.02929246425628662,
@@ -3308,7 +3308,7 @@
       "qpalm": {
         "solver_name": "qpalm",
         "setup_time": 0.001645803451538086,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.2637746016184489,
           "std": 0.03423129782378881,
           "median": 0.2753409147262573,
@@ -3390,7 +3390,7 @@
       "osqp": {
         "solver_name": "osqp",
         "setup_time": 0.04384303092956543,
-        "solve_times": {
+        "solve_time": {
           "mean": 4.688945110638937,
           "std": 2.631305510740902,
           "median": 4.441046953201294,
@@ -3474,7 +3474,7 @@
       "piqp_sparse": {
         "solver_name": "piqp_sparse",
         "setup_time": 0.05147814750671387,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.5827696800231934,
           "std": 0.03950690019840151,
           "median": 0.6029815673828125,
@@ -3556,7 +3556,7 @@
       "piqp_sse": {
         "solver_name": "piqp_sse",
         "setup_time": 0.1927492618560791,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.11492401758829753,
           "std": 0.006644523184859293,
           "median": 0.11786317825317383,
@@ -3638,7 +3638,7 @@
       "piqp_avx2": {
         "solver_name": "piqp_avx2",
         "setup_time": 0.1429917812347412,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.04202814896901449,
           "std": 0.004702830624441144,
           "median": 0.04224205017089844,
@@ -3720,7 +3720,7 @@
       "hpipm": {
         "solver_name": "hpipm",
         "setup_time": 0.004225015640258789,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.060343511899312335,
           "std": 0.010025517415757388,
           "median": 0.060640931129455566,
@@ -3802,7 +3802,7 @@
       "qpalm": {
         "solver_name": "qpalm",
         "setup_time": 0.0032231807708740234,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.6156954844792684,
           "std": 0.0762815164355354,
           "median": 0.6374938488006592,
@@ -3884,7 +3884,7 @@
       "osqp": {
         "solver_name": "osqp",
         "setup_time": 0.09326386451721191,
-        "solve_times": {
+        "solve_time": {
           "mean": 7.688915952046712,
           "std": 3.4427365898621405,
           "median": 7.077030062675476,
@@ -3968,7 +3968,7 @@
       "piqp_sparse": {
         "solver_name": "piqp_sparse",
         "setup_time": 0.09331393241882324,
-        "solve_times": {
+        "solve_time": {
           "mean": 1.0908616065979004,
           "std": 0.06366338675050781,
           "median": 1.0698094367980957,
@@ -4050,7 +4050,7 @@
       "piqp_sse": {
         "solver_name": "piqp_sse",
         "setup_time": 0.27030086517333984,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.2185215473175049,
           "std": 0.014208006710802686,
           "median": 0.2139594554901123,
@@ -4132,7 +4132,7 @@
       "piqp_avx2": {
         "solver_name": "piqp_avx2",
         "setup_time": 0.2263638973236084,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.08007210890452067,
           "std": 0.008343292708023413,
           "median": 0.07886230945587158,
@@ -4214,7 +4214,7 @@
       "hpipm": {
         "solver_name": "hpipm",
         "setup_time": 0.005617856979370117,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.11150086720784505,
           "std": 0.017430305377548538,
           "median": 0.10825574398040771,
@@ -4296,7 +4296,7 @@
       "qpalm": {
         "solver_name": "qpalm",
         "setup_time": 0.004103183746337891,
-        "solve_times": {
+        "solve_time": {
           "mean": 1.0370551904042562,
           "std": 0.13318360135634252,
           "median": 0.9873169660568237,
@@ -4378,7 +4378,7 @@
       "osqp": {
         "solver_name": "osqp",
         "setup_time": 0.15940403938293457,
-        "solve_times": {
+        "solve_time": {
           "mean": 10.277505962053935,
           "std": 4.780523370984504,
           "median": 8.581682443618774,
@@ -4462,7 +4462,7 @@
       "piqp_sparse": {
         "solver_name": "piqp_sparse",
         "setup_time": 0.1013340950012207,
-        "solve_times": {
+        "solve_time": {
           "mean": 1.8896770318349203,
           "std": 0.10694875790211818,
           "median": 1.9419794082641602,
@@ -4544,7 +4544,7 @@
       "piqp_sse": {
         "solver_name": "piqp_sse",
         "setup_time": 0.4295938014984131,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.3619621912638346,
           "std": 0.027000505208355032,
           "median": 0.35873210430145264,
@@ -4626,7 +4626,7 @@
       "piqp_avx2": {
         "solver_name": "piqp_avx2",
         "setup_time": 0.3890869617462158,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.1283658266067505,
           "std": 0.009954397145245633,
           "median": 0.12514209747314453,
@@ -4708,7 +4708,7 @@
       "hpipm": {
         "solver_name": "hpipm",
         "setup_time": 0.011014938354492188,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.20149157842000326,
           "std": 0.030637511373934754,
           "median": 0.19754314422607422,
@@ -4790,7 +4790,7 @@
       "qpalm": {
         "solver_name": "qpalm",
         "setup_time": 0.013296842575073242,
-        "solve_times": {
+        "solve_time": {
           "mean": 1.8208659887313843,
           "std": 0.21963784560554975,
           "median": 1.8795899152755737,
@@ -4872,7 +4872,7 @@
       "osqp": {
         "solver_name": "osqp",
         "setup_time": 0.24513697624206543,
-        "solve_times": {
+        "solve_time": {
           "mean": 21.137850983937582,
           "std": 9.063204762362671,
           "median": 19.680732131004333,
@@ -4956,7 +4956,7 @@
       "piqp_sparse": {
         "solver_name": "piqp_sparse",
         "setup_time": 0.15227580070495605,
-        "solve_times": {
+        "solve_time": {
           "mean": 2.9022975603739423,
           "std": 0.11782366841668641,
           "median": 2.8264319896698,
@@ -5038,7 +5038,7 @@
       "piqp_sse": {
         "solver_name": "piqp_sse",
         "setup_time": 0.6811330318450928,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.5697060505549113,
           "std": 0.02317161699895289,
           "median": 0.5536928176879883,
@@ -5120,7 +5120,7 @@
       "piqp_avx2": {
         "solver_name": "piqp_avx2",
         "setup_time": 0.5435898303985596,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.20489424069722492,
           "std": 0.010810164706987736,
           "median": 0.20056605339050293,
@@ -5202,7 +5202,7 @@
       "hpipm": {
         "solver_name": "hpipm",
         "setup_time": 0.03107595443725586,
-        "solve_times": {
+        "solve_time": {
           "mean": 0.316254711151123,
           "std": 0.04371775531121987,
           "median": 0.3143329620361328,
@@ -5284,7 +5284,7 @@
       "qpalm": {
         "solver_name": "qpalm",
         "setup_time": 0.01795196533203125,
-        "solve_times": {
+        "solve_time": {
           "mean": 2.634275221824646,
           "std": 0.3335189335510915,
           "median": 2.5728390216827393,
@@ -5366,7 +5366,7 @@
       "osqp": {
         "solver_name": "osqp",
         "setup_time": 0.4097611904144287,
-        "solve_times": {
+        "solve_time": {
           "mean": 23.552771425247194,
           "std": 10.653517841070299,
           "median": 20.341607570648193,

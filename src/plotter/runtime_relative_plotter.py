@@ -51,10 +51,10 @@ class RuntimeRelativePlotter(BasePlotter):
                 for problem_key, problem_results in self.results.items():
                     if f"{x_param}{param_val}" in problem_key:
                         # Get HPIPM baseline
-                        hpipm_time = problem_results['hpipm']['solve_times']['mean']
+                        hpipm_time = problem_results['hpipm']['solve_time']['mean']
                         
                         # Get solver performance
-                        mean_time = problem_results[solver]['solve_times']['mean']
+                        mean_time = problem_results[solver]['solve_time']['mean']
                         
                         # Calculate percentage speedup/slowdown
                         # Positive now means faster than HPIPM (improvement)

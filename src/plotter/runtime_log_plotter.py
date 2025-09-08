@@ -55,8 +55,8 @@ class RuntimeLogPlotter(BasePlotter):
             # Find matching result
             for problem_key, problem_results in self.results.items():
                 if f"{x_param}{param_val}" in problem_key:
-                    times.append(problem_results[solver_id]['solve_times']['mean'])
-                    times_std.append(problem_results[solver_id]['solve_times']['std'])
+                    times.append(problem_results[solver_id]['solve_time']['mean'])
+                    times_std.append(problem_results[solver_id]['solve_time']['std'])
                     break
         
         return times, times_std

@@ -11,13 +11,14 @@ from src.solvers.osqp_solver import OSQPSolver
 
 
 class BenchmarkRunner:
-    def __init__(self, problem_class, params, runs=100, verbose=False, eps=1e-6, name='default', solver_list=None):
+    def __init__(self, problem_class, params, runs=100, verbose=False, eps=1e-6, name='default', solver_list=None, compute_timings=False):
         self.problem_class = problem_class
         self.params = params
         self.runs = runs
         self.verbose = verbose
         self.eps = eps
         self.name = name
+        self.compute_timings = compute_timings
         self.solvers = self._get_compatible_solvers()
         
         if solver_list is not None:
@@ -30,12 +31,14 @@ class BenchmarkRunner:
                 'piqp_sse': PIQPSolver(
                     verbose=self.verbose, 
                     eps=self.eps, 
-                    isa='sse'
+                    isa='sse',
+                    compute_timings=self.compute_timings
                 ),
                 'piqp_avx2': PIQPSolver(
                     verbose=self.verbose, 
                     eps=self.eps, 
-                    isa='avx2'
+                    isa='avx2',
+                    compute_timings=self.compute_timings
                 ),
                 # 'piqp_avx512': PIQPSolver(
                 #     verbose=self.verbose, 
@@ -48,6 +51,7 @@ class BenchmarkRunner:
                 'piqp_block': PIQPSolver(
                     verbose=self.verbose, 
                     eps=self.eps,
+                    compute_timings=self.compute_timings
                 ),
             }
 
@@ -55,7 +59,8 @@ class BenchmarkRunner:
             'piqp_sparse': PIQPSolver(
                 verbose=self.verbose, 
                 eps=self.eps,
-                use_multistage=False
+                use_multistage=False,
+                compute_timings=self.compute_timings
             ),
             **piqp_multistage_variants,
             'hpipm': HPIPMSolver(
@@ -133,7 +138,7 @@ class BenchmarkRunner:
 
     def _print_stats(self, result):
         """Print statistics for a benchmark run"""
-        stats = result['solve_times']
+        stats = result['solve_time']
         print(f"Average solve time: {stats['mean']*1000:.2f}ms ± {stats['std']*1000:.2f}ms")
         stats = result['iterations']
         print(f"Average iterations: {stats['mean']:.2f} ± {stats['std']:.2f}")

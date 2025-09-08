@@ -32,10 +32,10 @@ def analyze_results(results):
         for problem_results in results.values():
             if solver_id in problem_results:
                 solver_results.append(problem_results[solver_id])
-                solver_times[solver_id].append(problem_results[solver_id]['solve_times']['mean'])
+                solver_times[solver_id].append(problem_results[solver_id]['solve_time']['mean'])
         
-        avg_setup_time = np.mean([r['setup_time'] for r in solver_results])
-        avg_solve_time = np.mean([r['solve_times']['mean'] for r in solver_results])
+        avg_setup_time = np.mean([r['setup_time']['mean'] if not isinstance(r['setup_time'], float) else r['setup_time'] for r in solver_results])
+        avg_solve_time = np.mean([r['solve_time']['mean'] for r in solver_results])
         avg_iterations = np.mean([r['iterations']['mean'] for r in solver_results])
         
         solver_avg_times[solver_id] = {
@@ -166,9 +166,9 @@ if __name__ == '__main__':
         'Ns': [1, 5, 10, 15, 20],
         'N': [15],
     }
-    # runner = BenchmarkRunner(ChainMassScenarioProblem, scenario_params, runs=30, name='test', solver_list=['piqp_sparse', 'piqp_avx2', 'hpipm'])
+    # runner = BenchmarkRunner(ChainMassScenarioProblem, scenario_params, runs=30, name='test', solver_list=['piqp_sparse', 'piqp_avx2'], compute_timings=True)
     # results = runner.run()
-    results = load_benchmark_results('results/benchmark_ChainMassScenarioProblem_test_20250313_162852.json')
+    results = load_benchmark_results('results/benchmark_ChainMassScenarioProblem_test_20250812_160505.json')
     analyze_results(results)
 
     # Create speedup heatmap

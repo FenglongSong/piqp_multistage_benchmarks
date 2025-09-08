@@ -31,9 +31,14 @@ class ChainMassOCPProblem(QPProblem, OCPProblem):
         self.c = np.zeros(dim)
         self.Aeq = sp.csc_matrix((N * nx, dim))
         self.beq = np.zeros(N * nx)
-        self.Aineq = sp.csc_matrix(((N - 1) * nu, dim))
-        self.bineq_lb = np.zeros((N - 1) * nu)
-        self.bineq_ub = np.zeros((N - 1) * nu)
+        if self.use_u_diff_constr:
+            self.Aineq = sp.csc_matrix(((N - 1) * nu, dim))
+            self.bineq_lb = np.zeros((N - 1) * nu)
+            self.bineq_ub = np.zeros((N - 1) * nu)
+        else:
+            self.Aineq = sp.csc_matrix((0, dim))
+            self.bineq_lb = np.zeros(0)
+            self.bineq_ub = np.zeros(0)
         self.xlb = np.zeros(dim)
         self.xub = np.zeros(dim)
         

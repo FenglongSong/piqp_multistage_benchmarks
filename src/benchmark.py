@@ -38,28 +38,28 @@ class Benchmark:
     def __init__(self, problem, solver: BaseSolver):
         self.problem = problem
         self.solver = solver
-        self.solve_times = []
-        self.iterations = []
         
     def run(self, runs: int = 100) -> Dict[str, Any]:
         self.solver.setup(self.problem)
         self.solver.solve()
+
+        stats_samples = {}
+        for key in self.solver.stats.keys():
+            stats_samples[key] = []
         
         # Run multiple solves
-        self.solve_times = []
         np.random.seed(42)
         for _ in range(runs):
             self.problem.randomize_x0()
             self.solver.solve()
-            self.solve_times.append(self.solver.stats['solve_time'])
-            self.iterations.append(self.solver.stats['iterations'])
             
-        # Compute statistics
-        solve_time_stats = BenchmarkStatistics.from_samples(self.solve_times)
-        iteration_stats = BenchmarkStatistics.from_samples(self.iterations)
+            for key, value in self.solver.stats.items():
+                stats_samples[key].append(value)
         
-        return {
-            'setup_time': self.solver.stats['setup_time'],
-            'solve_times': solve_time_stats.to_dict(),
-            'iterations': iteration_stats.to_dict()
-        }
+        # Compute statistics
+        result = {}
+        for key, samples in stats_samples.items():
+            stats = BenchmarkStatistics.from_samples(samples)
+            result[key] = stats.to_dict()
+        
+        return result
