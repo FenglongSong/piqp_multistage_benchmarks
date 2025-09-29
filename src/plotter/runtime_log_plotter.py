@@ -35,7 +35,8 @@ class RuntimeLogPlotter(BasePlotter):
     def _plot_solver_results(self, param_values, x_param):
         """Plot results for each solver"""
         available_solvers = next(iter(self.results.values())).keys()
-        solver_order = ['hpipm', 'qpalm', 'osqp', 'piqp_block', 'piqp_sse', 'piqp_avx2', 'piqp_avx512', 'piqp_sparse']
+        # solver_order = ['hpipm', 'qpalm', 'osqp', 'piqp_block', 'piqp_sse', 'piqp_avx2', 'piqp_avx512', 'piqp_sparse']
+        solver_order = ['hpipm', 'piqp_block', 'piqp_sparse']
         ordered_solvers = [solver for solver in solver_order if solver in available_solvers]
         for solver_id in ordered_solvers:
             times, times_std = self._collect_solver_data(solver_id, param_values, x_param)
@@ -85,7 +86,7 @@ class RuntimeLogPlotter(BasePlotter):
         plt.ylabel('Average solver run time [s]', fontsize=14)
 
         handles, labels = plt.gca().get_legend_handles_labels()
-        order = [5, 3, 4, 0, 1, 2] 
+        order = [0, 1, 2] 
         plt.legend([handles[i] for i in order], [labels[i] for i in order], loc='lower right', ncol=2, columnspacing=0.5, borderaxespad=0.2, handletextpad=0.5) 
         # plt.legend(loc='lower right', ncol=2)
 

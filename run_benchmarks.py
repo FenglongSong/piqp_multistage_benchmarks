@@ -138,39 +138,40 @@ def load_benchmark_results(file_path: str) -> Dict[str, Any]:
 if __name__ == '__main__':
     # For ChainMassOCPProblem
     params = {
-        'M': [2, 3, 4, 5, 10, 20, 30, 40, 50, 60, 70],
-        'N': [15],
+        'M': [5],
+        'N': [20, 30, 40, 50, 60, 70],
         'use_u_diff_cost': [False],
         'use_u_diff_constr': [False],
     }
-    # runner = BenchmarkRunner(ChainMassOCPProblem, params, runs=30, name='M2-70_N15_default')
-    # results_default = runner.run()
-    results_default = load_benchmark_results('results/benchmark_M2-70_N15_default_20250304_121610.json')
+    name = 'M' + str(params['M']) + '_N' + str(min(params['N'])) + '-' + str(max(params['N'])) + '_default'
+    runner = BenchmarkRunner(ChainMassOCPProblem, params, runs=30, name=name, compute_timings=True)
+    results_default = runner.run()
+    # results_default = load_benchmark_results('results/benchmark_M2-70_N15_default_20250304_121610.json')
     analyze_results(results_default)
 
     plotter = RuntimeLogPlotter(results_default)
-    plotter.plot('M', save_path='results/benchmark_M2-70_N15_default.pdf')
+    plotter.plot('N', save_path='results/benchmark_M10_N20-70_default.pdf')
     
-    params['use_u_diff_cost'] = [True]
-    # runner = BenchmarkRunner(ChainMassOCPProblem, params, runs=30, name='M2-70_N15_cost_diff')
-    # results_cost_diff = runner.run()
-    results_cost_diff = load_benchmark_results('results/benchmark_M2-70_N15_cost_diff_20250304_125958.json')
-    analyze_results(results_cost_diff)
+    # params['use_u_diff_cost'] = [True]
+    # # runner = BenchmarkRunner(ChainMassOCPProblem, params, runs=30, name='M2-70_N15_cost_diff')
+    # # results_cost_diff = runner.run()
+    # results_cost_diff = load_benchmark_results('results/benchmark_M2-70_N15_cost_diff_20250304_125958.json')
+    # analyze_results(results_cost_diff)
 
-    plotter = RuntimeRelativePlotter(results_cost_diff)
-    plotter.plot('M', save_path='results/benchmark_M2-70_N15_cost_diff.pdf')
+    # plotter = RuntimeRelativePlotter(results_cost_diff)
+    # plotter.plot('M', save_path='results/benchmark_M2-70_N15_cost_diff.pdf')
 
-    # For ChainMassScenarioProblem
-    scenario_params = {
-        'M': [2, 5, 10, 20, 50],
-        'Ns': [1, 5, 10, 15, 20],
-        'N': [15],
-    }
-    # runner = BenchmarkRunner(ChainMassScenarioProblem, scenario_params, runs=30, name='test', solver_list=['piqp_sparse', 'piqp_avx2'], compute_timings=True)
-    # results = runner.run()
-    results = load_benchmark_results('results/benchmark_ChainMassScenarioProblem_test_20250812_160505.json')
-    analyze_results(results)
+    # # For ChainMassScenarioProblem
+    # scenario_params = {
+    #     'M': [2, 5, 10, 20, 50],
+    #     'Ns': [1, 5, 10, 15, 20],
+    #     'N': [15],
+    # }
+    # # runner = BenchmarkRunner(ChainMassScenarioProblem, scenario_params, runs=30, name='test', solver_list=['piqp_sparse', 'piqp_avx2'], compute_timings=True)
+    # # results = runner.run()
+    # results = load_benchmark_results('results/benchmark_ChainMassScenarioProblem_test_20250812_160505.json')
+    # analyze_results(results)
 
-    # Create speedup heatmap
-    heatmap_plotter = SpeedupHeatmapPlotter(results)
-    heatmap_plotter.plot('piqp_sparse', 'piqp_avx2', save_path='results/scenario_speedup_heatmap.pdf')
+    # # Create speedup heatmap
+    # heatmap_plotter = SpeedupHeatmapPlotter(results)
+    # heatmap_plotter.plot('piqp_sparse', 'piqp_avx2', save_path='results/scenario_speedup_heatmap.pdf')

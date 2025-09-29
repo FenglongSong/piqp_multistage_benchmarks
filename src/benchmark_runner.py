@@ -67,14 +67,14 @@ class BenchmarkRunner:
                 verbose=self.verbose, 
                 eps=self.eps
             ),
-            'qpalm': QPALMSolver(
-                verbose=self.verbose, 
-                eps=self.eps
-            ),
-            'osqp': OSQPSolver(
-                verbose=self.verbose, 
-                eps=self.eps
-            ),
+            # 'qpalm': QPALMSolver(
+            #     verbose=self.verbose, 
+            #     eps=self.eps
+            # ),
+            # 'osqp': OSQPSolver(
+            #     verbose=self.verbose, 
+            #     eps=self.eps
+            # ),
         }
 
     def _get_compatible_solvers(self):
