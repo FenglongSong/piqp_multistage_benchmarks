@@ -7,7 +7,7 @@ from src.problems.qp_problem import QPProblem
 from src.solvers.base_solver import BaseSolver
 
 class PIQPSolver(BaseSolver):
-    def __init__(self, verbose=True, eps=1e-6, use_multistage=True, isa=None, compute_timings=False):
+    def __init__(self, verbose=True, eps=1e-6, use_multistage=True, isa=None, compute_timings=False, parallel=False):
         super().__init__()
         
         import piqp
@@ -38,7 +38,10 @@ class PIQPSolver(BaseSolver):
         self.solver.settings.verbose = verbose
         self.solver.settings.compute_timings = compute_timings
         if use_multistage:
-            self.solver.settings.kkt_solver = piqp.KKTSolver.sparse_multistage
+            if not parallel:
+                self.solver.settings.kkt_solver = piqp.KKTSolver.sparse_multistage
+            else:
+                self.solver.settings.kkt_solver = piqp.KKTSolver.sparse_multistage_parallel
         
     def supports_problem(self, problem):
         return isinstance(problem, QPProblem)

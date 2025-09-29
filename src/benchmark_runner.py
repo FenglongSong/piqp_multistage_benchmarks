@@ -5,9 +5,9 @@ from datetime import datetime
 from pathlib import Path
 from src.benchmark import Benchmark
 from src.solvers.piqp_solver import PIQPSolver
-from src.solvers.hpipm_solver import HPIPMSolver
-from src.solvers.qpalm_solver import QPALMSolver
-from src.solvers.osqp_solver import OSQPSolver
+# from src.solvers.hpipm_solver import HPIPMSolver
+# from src.solvers.qpalm_solver import QPALMSolver
+# from src.solvers.osqp_solver import OSQPSolver
 
 
 class BenchmarkRunner:
@@ -40,6 +40,20 @@ class BenchmarkRunner:
                     isa='avx2',
                     compute_timings=self.compute_timings
                 ),
+                'piqp_sse_p': PIQPSolver(
+                    verbose=self.verbose, 
+                    eps=self.eps, 
+                    isa='sse',
+                    compute_timings=self.compute_timings,
+                    parallel=True
+                ),
+                'piqp_avx2_p': PIQPSolver(
+                    verbose=self.verbose, 
+                    eps=self.eps, 
+                    isa='avx2',
+                    compute_timings=self.compute_timings,
+                    parallel=True
+                ),
                 # 'piqp_avx512': PIQPSolver(
                 #     verbose=self.verbose, 
                 #     eps=self.eps, 
@@ -53,20 +67,26 @@ class BenchmarkRunner:
                     eps=self.eps,
                     compute_timings=self.compute_timings
                 ),
+                'piqp_block_p': PIQPSolver(
+                    verbose=self.verbose, 
+                    eps=self.eps,
+                    compute_timings=self.compute_timings,
+                    parallel=True
+                ),
             }
 
         return {
-            'piqp_sparse': PIQPSolver(
-                verbose=self.verbose, 
-                eps=self.eps,
-                use_multistage=False,
-                compute_timings=self.compute_timings
-            ),
+            # 'piqp_sparse': PIQPSolver(
+            #     verbose=self.verbose, 
+            #     eps=self.eps,
+            #     use_multistage=False,
+            #     compute_timings=self.compute_timings
+            # ),
             **piqp_multistage_variants,
-            'hpipm': HPIPMSolver(
-                verbose=self.verbose, 
-                eps=self.eps
-            ),
+            # 'hpipm': HPIPMSolver(
+            #     verbose=self.verbose, 
+            #     eps=self.eps
+            # ),
             # 'qpalm': QPALMSolver(
             #     verbose=self.verbose, 
             #     eps=self.eps
