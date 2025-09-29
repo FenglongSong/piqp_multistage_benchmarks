@@ -38,7 +38,7 @@ class RuntimeLogPlotter(BasePlotter):
         # solver_order = ['hpipm', 'qpalm', 'osqp', 'piqp_block', 'piqp_sse', 'piqp_avx2', 'piqp_avx512', 'piqp_sparse']
         solver_order = ['piqp_block', 'piqp_block_p']
         # FOR x86 platform
-        # solver_order = ['piqp_sse', 'piqp_avx2, piqp_sse_p, piqp_avx2_p']
+        solver_order = ['piqp_sse', 'piqp_avx2', 'piqp_sse_p', 'piqp_avx2_p']
         ordered_solvers = [solver for solver in solver_order if solver in available_solvers]
         for solver_id in ordered_solvers:
             times, times_std = self._collect_solver_data(solver_id, param_values, x_param)
