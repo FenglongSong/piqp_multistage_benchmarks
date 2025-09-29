@@ -143,7 +143,7 @@ if __name__ == '__main__':
         'use_u_diff_cost': [False],
         'use_u_diff_constr': [False],
     }
-    name = 'M' + str(params['M']) + '_N' + str(min(params['N'])) + '-' + str(max(params['N'])) + '_default'
+    name = 'M' + str(params['M'][0]) + '_N' + str(min(params['N'])) + '-' + str(max(params['N'])) + '_default'
     runner = BenchmarkRunner(ChainMassOCPProblem, params, runs=30, name=name, compute_timings=True)
     results_default = runner.run()
     # results_default = load_benchmark_results('results/benchmark_M2-70_N15_default_20250304_121610.json')
