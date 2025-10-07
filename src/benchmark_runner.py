@@ -40,6 +40,12 @@ class BenchmarkRunner:
                     isa='avx2',
                     compute_timings=self.compute_timings
                 ),
+                # 'piqp_avx512': PIQPSolver(
+                #     verbose=self.verbose, 
+                #     eps=self.eps, 
+                #     isa='avx512',
+                #     compute_timings=self.compute_timings
+                # ),
                 'piqp_sse_p': PIQPSolver(
                     verbose=self.verbose, 
                     eps=self.eps, 
@@ -54,10 +60,12 @@ class BenchmarkRunner:
                     compute_timings=self.compute_timings,
                     parallel=True
                 ),
-                # 'piqp_avx512': PIQPSolver(
+                # 'piqp_avx512_p': PIQPSolver(
                 #     verbose=self.verbose, 
                 #     eps=self.eps, 
-                #     isa='avx512'
+                #     isa='avx512',
+                #     compute_timings=self.compute_timings,
+                #     parallel=True
                 # ),
             }
         else:

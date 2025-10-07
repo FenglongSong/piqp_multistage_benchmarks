@@ -138,19 +138,20 @@ def load_benchmark_results(file_path: str) -> Dict[str, Any]:
 if __name__ == '__main__':
     # For ChainMassOCPProblem
     params = {
-        'M': [5],
-        'N': [20, 30, 40, 50, 60, 70],
+        'M': [20],
+        'N': [*range(20, 201, 20)],
         'use_u_diff_cost': [False],
         'use_u_diff_constr': [False],
     }
-    name = 'M' + str(params['M'][0]) + '_N' + str(min(params['N'])) + '-' + str(max(params['N'])) + '_default'
-    runner = BenchmarkRunner(ChainMassOCPProblem, params, runs=30, name=name, compute_timings=True)
-    results_default = runner.run()
-    # results_default = load_benchmark_results('results/benchmark_M2-70_N15_default_20250304_121610.json')
+    name = 'M' + str(params['M'][0]) + '_N' + str(min(params['N'])) + '-' + str(max(params['N'])) + '_T' + str(num_threads)
+    # runner = BenchmarkRunner(ChainMassOCPProblem, params, runs=100, name=name, compute_timings=True)
+    # results_default = runner.run()
+    # results_default = load_benchmark_results('results/benchmark_ChainMassOCPProblem_M20_N20-200_default_20251001_104103.json')
+    results_default = load_benchmark_results('results/benchmark_ChainMassOCPProblem_M20_N20-160_default_20251001_180354.json')
     analyze_results(results_default)
 
     plotter = RuntimeLogPlotter(results_default)
-    plotter.plot('N', save_path='results/benchmark_M10_N20-70_default.pdf')
+    plotter.plot('N', save_path='results/benchmark_' + name, fig_width=10)
     
     # params['use_u_diff_cost'] = [True]
     # # runner = BenchmarkRunner(ChainMassOCPProblem, params, runs=30, name='M2-70_N15_cost_diff')

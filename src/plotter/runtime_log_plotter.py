@@ -7,41 +7,41 @@ class RuntimeLogPlotter(BasePlotter):
 
     def plot(self, x_param, save_path=None, fig_width=5.5):
         """Plot benchmark results with specified parameter on x-axis"""
-        fig_height = fig_width * 0.66
-        plt.figure(figsize=(fig_width, fig_height))
-        
-        plt.grid(True, which="major", ls="-", alpha=0.2)
-        plt.grid(True, which="minor", ls=":", alpha=0.2)
-        # plt.yscale('log')
-        
-        param_values = []
-        for key in self.results.keys():
-            parts = key.split('_')
-            # Find the part that starts with x_param
-            for part in parts:
-                if part.startswith(x_param):
-                    # Extract the numeric value after the prefix
-                    value = int(part[len(x_param):])
-                    param_values.append(value)
-                    break
-        param_values = sorted(set(param_values))
-        
-        self._plot_solver_results(param_values, x_param)
-        self._customize_plot(x_param, param_values)
-        
-        if save_path:
-            plt.savefig(save_path, bbox_inches='tight', dpi=300)
+        for field in ['solve_time', 'kkt_factor_time', 'kkt_solve_time']:
+            fig_height = fig_width * 0.66
+            plt.figure(figsize=(fig_width, fig_height))
+            
+            plt.grid(True, which="major", ls="-", alpha=0.2)
+            plt.grid(True, which="minor", ls=":", alpha=0.2)
+            # plt.yscale('log')
+            
+            param_values = []
+            for key in self.results.keys():
+                parts = key.split('_')
+                # Find the part that starts with x_param
+                for part in parts:
+                    if part.startswith(x_param):
+                        # Extract the numeric value after the prefix
+                        value = int(part[len(x_param):])
+                        param_values.append(value)
+                        break
+            param_values = sorted(set(param_values))
+            
+            self._plot_solver_results(param_values, x_param, field)
+            self._customize_plot(x_param, param_values, field)
+            
+            if save_path:
+                plt.savefig(save_path+'_'+field, bbox_inches='tight', dpi=300)
 
-    def _plot_solver_results(self, param_values, x_param):
+    def _plot_solver_results(self, param_values, x_param, field="solve_time"):
         """Plot results for each solver"""
         available_solvers = next(iter(self.results.values())).keys()
         # solver_order = ['hpipm', 'qpalm', 'osqp', 'piqp_block', 'piqp_sse', 'piqp_avx2', 'piqp_avx512', 'piqp_sparse']
-        solver_order = ['piqp_block', 'piqp_block_p']
-        # FOR x86 platform
+        # solver_order = ['piqp_sse', 'piqp_avx2', 'piqp_avx512', 'piqp_sse_p', 'piqp_avx2_p', 'piqp_avx512_p']
         solver_order = ['piqp_sse', 'piqp_avx2', 'piqp_sse_p', 'piqp_avx2_p']
         ordered_solvers = [solver for solver in solver_order if solver in available_solvers]
         for solver_id in ordered_solvers:
-            times, times_std = self._collect_solver_data(solver_id, param_values, x_param)
+            times, times_std = self._collect_solver_data(solver_id, param_values, x_param, field)
             
             x = np.array(param_values)
             y = np.array(times)
@@ -49,17 +49,20 @@ class RuntimeLogPlotter(BasePlotter):
             
             self._plot_solver_line(x, y, std, solver_id)
 
-    def _collect_solver_data(self, solver_id, param_values, x_param):
+    def _collect_solver_data(self, solver_id, param_values, x_param, field="solve_time"):
         """Collect timing data for a specific solver"""
         times = []
         times_std = []
+
+        if field in ['kkt_factor_time', 'kkt_solve_time']:
+            field = 'piqp_' + field
         
         for param_val in param_values:
             # Find matching result
             for problem_key, problem_results in self.results.items():
                 if f"{x_param}{param_val}" in problem_key:
-                    times.append(problem_results[solver_id]['solve_time']['mean'])
-                    times_std.append(problem_results[solver_id]['solve_time']['std'])
+                    times.append(problem_results[solver_id][field]['mean'])
+                    times_std.append(problem_results[solver_id][field]['std'])
                     break
         
         return times, times_std
@@ -76,16 +79,22 @@ class RuntimeLogPlotter(BasePlotter):
                         alpha=0.3,
                         color=color)
 
-    def _customize_plot(self, x_param, param_values):
+    def _customize_plot(self, x_param, param_values, field):
         """Customize plot appearance"""
         param_labels = {
             'M': 'Number of masses $M$',
             'Ns': 'Number of scenarios $N_s$',
             'N': 'Horizon length $N$'
         }
+
+        text = {
+            'solve_time': 'Average solver run time [s]',
+            'kkt_factor_time': 'Average KKT factor time [s]',
+            'kkt_solve_time': 'Average KKT solve time [s]'
+        }
         
         plt.xlabel(param_labels.get(x_param, x_param), fontsize=14)
-        plt.ylabel('Average solver run time [s]', fontsize=14)
+        plt.ylabel(text[field], fontsize=14)
 
         handles, labels = plt.gca().get_legend_handles_labels()
         order = range(len(labels))
@@ -95,3 +104,4 @@ class RuntimeLogPlotter(BasePlotter):
         plt.xlim(min(param_values), max(param_values))
         plt.minorticks_on()
         plt.tight_layout()
+        plt.grid()
