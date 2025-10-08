@@ -1,6 +1,7 @@
 import numpy as np
 import json
 from typing import Dict, Any
+import os
 
 from src.problems.chain_mass_ocp_problem import ChainMassOCPProblem
 from src.problems.chain_mass_scenario_problem import ChainMassScenarioProblem
@@ -136,6 +137,10 @@ def load_benchmark_results(file_path: str) -> Dict[str, Any]:
 
 
 if __name__ == '__main__':
+
+    num_threads = os.getenv('OMP_NUM_THREADS')
+    print(f"Using OMP_NUM_THREADS={num_threads}")
+
     # For ChainMassOCPProblem
     params = {
         'M': [20],
@@ -144,10 +149,11 @@ if __name__ == '__main__':
         'use_u_diff_constr': [False],
     }
     name = 'M' + str(params['M'][0]) + '_N' + str(min(params['N'])) + '-' + str(max(params['N'])) + '_T' + str(num_threads)
-    # runner = BenchmarkRunner(ChainMassOCPProblem, params, runs=100, name=name, compute_timings=True)
-    # results_default = runner.run()
+    # name = 'M' + str(params['M'][0]) + '_N' + str(min(params['N'])) + '-' + str(max(params['N'])) + '_T0'
+    runner = BenchmarkRunner(ChainMassOCPProblem, params, runs=100, name=name, compute_timings=True)
+    results_default = runner.run()
     # results_default = load_benchmark_results('results/benchmark_ChainMassOCPProblem_M20_N20-200_default_20251001_104103.json')
-    results_default = load_benchmark_results('results/benchmark_ChainMassOCPProblem_M20_N20-160_default_20251001_180354.json')
+    # results_default = load_benchmark_results('results/benchmark_ChainMassOCPProblem_M20_N20-160_default_20251001_180354.json')
     analyze_results(results_default)
 
     plotter = RuntimeLogPlotter(results_default)
