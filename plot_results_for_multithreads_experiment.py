@@ -11,7 +11,7 @@ def extract(results_files):
         for part in parts:
             if part.startswith('T'):
                 # Extract the numeric value after the prefix
-                value = int(part[1])
+                value = int(part[1:len(part)])
                 all_num_threads.append(value)
                 break
 
