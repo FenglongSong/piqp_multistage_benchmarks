@@ -24,7 +24,7 @@ class PIQPSolver(BaseSolver):
                 warnings.warn('avx2 not supported, falling back to default')
                 self.solver = piqp.SparseSolver()
         elif isa == 'avx512':
-            if piqp.instruction_set.avx512:
+            if piqp.instruction_set.avx512f:
                 module = importlib.import_module('piqp.piqp_python_avx512', 'piqp')
                 self.solver = module.SparseSolver()
             else:
