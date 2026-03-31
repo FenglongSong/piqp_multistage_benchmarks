@@ -141,7 +141,8 @@ class BenchmarkRunner:
         current_combination = 0
         
         for params in param_combinations:
-            problem = self.problem_class(**params)
+            problem_params = dict(params)
+            problem = self.problem_class(**problem_params)
             problem_key = self._create_problem_key(params)
             results[problem_key] = {}
             
